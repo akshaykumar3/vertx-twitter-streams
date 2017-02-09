@@ -9,6 +9,7 @@ repositories {
 dependencies {
     compile 'io.vertx:vertx-core:3.2.1'
     compile 'com.twitter:hbc-core:2.2.0'
+    compile 'org.json:json:20160212'
 }
 
 task execute(type: JavaExec) {

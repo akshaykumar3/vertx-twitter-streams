@@ -7,6 +7,8 @@ import com.twitter.hbc.core.processor.StringDelimitedProcessor;
 import com.twitter.hbc.httpclient.BasicClient;
 import com.twitter.hbc.httpclient.auth.Authentication;
 import com.twitter.hbc.httpclient.auth.OAuth1;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.concurrent.BlockingQueue;
@@ -49,13 +51,13 @@ public class TwitterAPI {
     }
 
     public String getSampleStatuses() {
-        String message = null;
         try {
-            message = queue.take();
+            JSONObject jsonObject = new JSONObject(queue.take());
+            return jsonObject.get("text").toString();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return message;
+        return null;
     }
 
     private String getProperty(String name) {
