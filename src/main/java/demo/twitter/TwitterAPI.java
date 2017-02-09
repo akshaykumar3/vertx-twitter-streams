@@ -61,7 +61,6 @@ public class TwitterAPI {
     }
 
     private String getProperty(String name) {
-        System.out.println(System.getProperty(name));
         return System.getProperty(name);
     }
 }
