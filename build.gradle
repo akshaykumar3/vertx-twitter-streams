@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile 'io.vertx:vertx-core:3.2.1'
+    compile 'com.twitter:hbc-core:2.2.0'
+}
+
+task execute(type: JavaExec) {
+    main = "demo.twitter.TwitterStreamsVerticle"
+    classpath = sourceSets.main.runtimeClasspath
+    Properties properties = new Properties()
+    properties.load(new FileInputStream("$project.rootDir/application.properties"))
+    properties.forEach { key, value ->
+        systemProperty key, value
+    }
+}
