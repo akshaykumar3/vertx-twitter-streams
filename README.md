@@ -1,5 +1,9 @@
 ## Playground for Vertx and Twitter streaming API
 
+###TODO:
+- Integrate some nice and fancy UI for the vertx server
+- Parse the JSON response from twitter API
+
 Steps:
 - Register a new app here - https://apps.twitter.com/
 - Fill out necessary details and create a new app
